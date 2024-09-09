@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" type="text/css" href="styles/navBar.css">
+     <link rel="stylesheet" type="text/css" href="styles/home.css">
+     <link rel="icon" type="image/x-icon" href="media/icons/jw-logo-4.jpg">
+     <title>Charambe | Home</title>
+</head>
+<body>
+     <div class="main">
+          <div class="navigation">
+               <img src="media/icons/jw-logo-4.jpg" class="logo">
+               <ul type="none" class="menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="maktaba.php">Maktaba</a></li>
+               </ul>
+          </div>
+          <div class="body">
+               <div class="form">
+                    <div class="title">
+                         <p>Weka Data Hapa:</p>
+                    </div>
+                    <form action="submit.php" method="POST" name="submit" enctype="multipart/form-data">
+                         <select class="options" name="mwaka">
+                              <option value="0">--Mwaka--</option>
+                              <option value="2024">2024</option>
+                              <option value="2025">2025</option>
+                              <option value="2026">2026</option>
+                              <option value="2027">2027</option>
+                              <option value="2028">2028</option>
+                              <option value="2029">2029</option>
+                              <option value="2030">2030</option>
+                              <option value="2031">2031</option>
+                              <option value="2032">2032</option>
+                              <option value="2033">2033</option>
+                              <option value="2034">2034</option>
+                              <option value="2035">2035</option>
+                         </select><br>
+                         <p id="alert" class="alert"></p><br>
+                         <select class="options" name="mwezi">
+                              <option value="0">--Mwezi--</option>
+                              <option value="1">JANUARI</option>
+                              <option value="2">FEBRUARI</option>
+                              <option value="3">MACHI</option>
+                              <option value="4">APRILI</option>
+                              <option value="5">MEI</option>
+                              <option value="6">JUNI</option>
+                              <option value="7">JULAI</option>
+                              <option value="8">AGOSTI</option>
+                              <option value="9">SEPTEMBA</option>
+                              <option value="10">OKTOBA</option>
+                              <option value="11">NOVEMBA</option>
+                              <option value="12">DISEMBA</option>
+                         </select><br>
+                         <p id="alert1" class="alert"></p><br>
+                         <select class="options" name="kundi">
+                              <option value="none">--Kundi la machapisho--</option>
+                              <option value="yaliyopo">Yaliyopo</option>
+                              <option value="yaliyoagizwa">Yalyoagizwa</option>
+                         </select><br>
+                         <p id="alert2" class="alert"></p><br>
+                         <select class="options" name="machapisho">
+                              <option value="none">--Aina ya machapisho--</option>
+                              <option value="magazeti">Magazeti</option>
+                              <option value="trakti">Trakti</option>
+                              <option value="vitabu">Vitabu</option>
+                              <option value="madaftari">Madaftari</option>
+                              <option value="broshua">Broshua</option>
+                         </select><br>
+                         <p id="alert3" class="alert"></p><br>
+                         <div class="inputs">
+                              <input type="text" name="jina" placeholder="Jina la Chapisho...">
+                              <img src="media/icons/name.png" class="icons">
+                         </div><br>
+                         <p id="alert4" class="alert"></p><br>
+                         <div class="inputs">
+                              <input type="text" name="namba" placeholder="Namba ya Chapisho...">
+                              <img src="media/icons/machapisho.png" class="icons">
+                         </div><br>
+                         <p id="alert5" class="alert"></p><br>
+                         <div class="inputs">
+                              <input type="text" name="idadi" placeholder="Idadi ya Chapisho...">
+                              <img src="media/icons/machapisho.png" class="icons">
+                         </div><br>
+                         <p id="alert6" class="alert"></p><br>
+                         <button class="sendbtn" name="kusanya" onclick="hakiki()">Tuma</button>
+                    </form>
+               </div>
+          </div>
+     </div>
+</body>
+<script>
+     function hakiki(){
+          let result = "*Tafadhali jaza kipengele hiki!*";
+          let numbresult = "*Tafadhali ingiza tarakimu na si herufi!*";
+          let numbresult2 = "*Tafadhali ingiza tarakimu chanya!*";
+
+          if(document.submit.mwaka.value == 0){
+               document.getElementById("alert").innerHTML = result;
+               event.preventDefault();
+          }
+
+          if(document.submit.mwezi.value == 0){
+               document.getElementById("alert1").innerHTML = result;
+               event.preventDefault();
+          }
+
+          if(document.submit.kundi.value === "none"){
+               document.getElementById("alert2").innerHTML = result;
+               event.preventDefault();
+          }
+
+          if(document.submit.machapisho.value == "none"){
+               document.getElementById("alert3").innerHTML = result;
+               event.preventDefault();
+          }
+          
+          if(document.submit.jina.value == ""){
+               document.getElementById("alert4").innerHTML = result;
+               event.preventDefault();
+          }
+
+          if(document.submit.namba.value == ""){
+               document.getElementById("alert5").innerHTML = result;
+               event.preventDefault();
+          }
+
+          if(document.submit.idadi.value == ""){
+               document.getElementById("alert6").innerHTML = result;
+               event.preventDefault();
+          }
+          else if(isNaN(document.submit.idadi.value)){
+               document.getElementById("alert6").innerHTML = numbresult;
+               event.preventDefault();
+          }
+          else if(document.submit.idadi.value<0){
+               document.getElementById("alert6").innerHTML = numbresult2;
+               event.preventDefault();
+          }
+     }
+</script>
+</html>
